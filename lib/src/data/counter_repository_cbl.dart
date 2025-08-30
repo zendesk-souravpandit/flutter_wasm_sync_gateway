@@ -12,7 +12,7 @@ part 'counter_repository_cbl.cbl.type.g.dart';
 class CounterRepository {
   CounterRepository({required this.database});
 
-  final Database database;
+  final Database? database;
 
   /// Returns the current value of the counter with the given [id] from the
   /// database.
@@ -39,7 +39,7 @@ class CounterRepository {
   ///
   /// The [delta] can be both positive or negative.
   Future<void> updateCounterValue(String id, {required int delta}) async {
-    final collection = await database.defaultCollection;
+    final collection = await database!.defaultCollection;
     await collection
         .saveTypedDocument(MutableCounterChange(
           counterId: id,
@@ -64,7 +64,7 @@ class CounterRepository {
             return false;
           },
         )..addCollection(
-            await database.defaultCollection,
+            await database!.defaultCollection,
             CollectionConfiguration(
               // Only pull the selected counter.
               channels: ['counter/$id'],
@@ -95,7 +95,7 @@ class CounterRepository {
 
     return QueryBuilder.createAsync()
         .select(SelectResult.expression(deltaSum))
-        .from(DataSource.collection(await database.defaultCollection))
+        .from(DataSource.collection(await database!.defaultCollection))
         .where(counterId.equalTo(Expression.parameter('COUNTER_ID')))
         .groupBy(counterId);
   }

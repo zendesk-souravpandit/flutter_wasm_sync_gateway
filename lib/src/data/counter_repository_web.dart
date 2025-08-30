@@ -1,5 +1,5 @@
 class CounterRepository {
-  CounterRepository({required dynamic database});
+  CounterRepository({dynamic database});
   Future<int> counterValue(String id) async => 0;
   Stream<int> watchCounterValue(String id) async* {
     yield 0;

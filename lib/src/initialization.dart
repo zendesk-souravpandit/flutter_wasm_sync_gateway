@@ -1,1 +1,2 @@
-export 'initialization_web.dart' if (dart.library.io) 'initialization_io.dart';
+export 'initialization_io.dart'
+    if (dart.library.html) 'initialization_web.dart';
