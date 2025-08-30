@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: avoid_classes_with_only_static_members, lines_longer_than_80_chars, directives_ordering, avoid_redundant_argument_values
 
@@ -7,7 +8,7 @@
 
 import 'package:cbl/cbl.dart';
 import 'package:cbl/src/typed_data_internal.dart';
-import 'package:cbl_counter/src/data/counter_repository.dart';
+import 'package:cbl_counter/src/data/counter_repository_cbl.dart';
 
 class CounterDatabase extends $CounterDatabase {
   static Future<AsyncDatabase> openAsync(
